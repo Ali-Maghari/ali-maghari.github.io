@@ -56,12 +56,12 @@ navbar-scroll="true">
             </div>
     </div>
         <div class="row">
-            <div class="col-8 my-12">
+            <div class="col-8 mt-4">
                 <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">App Details</p>
                 </div>
             </div>
-            <div class="mb-0 my-2 col-lg-8 col-md-8 col-sm-0">
+            <div class="mb-0 my-2 col-lg-12 col-md-12 col-sm-12">
                 <div class="numbers">
                     <p class="text-sm mb-0 ps-2 text-capitalize font-weight-lighter app_description"></p>
                 </div>
@@ -82,34 +82,30 @@ navbar-scroll="true">
             </div>
         </div>
         <div class="row px-0 pt-0 pb-2">
-            <div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'
-                 title='قم بالضغط على الصورة للعرض في وضع ملء الشاشة مع إمكانية التحميل'>
-                <div class='card-body p-3'>
-                    <div class='row'>
-                        <div class='col-12'>
-                            <div class='numbers'>
-                                <h5 class='text-sm font-weight-bolder mb-0'>
-                                    <a href='img/e_learning/1.png'>
-                                        <img src='img/e_learning/1.png' alt='certificate image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>
-                                    </a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='my-4'>
-                <ul class='pagination justify-content-center'>
+<!--            <div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'-->
+<!--                 title='Click on the image to view in full screen mode with the ability to download'>-->
+<!--                <div class='card-body p-3'>-->
+<!--                    <div class='row'>-->
+<!--                        <div class='col-12'>-->
+<!--                            <div class='numbers'>-->
+<!--                                <h5 class='text-sm font-weight-bolder mb-0'>-->
+<!--                                    <a href='img/e_learning/1.png'>-->
+<!--                                        <img src='img/e_learning/1.png' alt='certificate image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>-->
+<!--                                    </a>-->
+<!--                                </h5>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class='my-4'>-->
+<!--                <ul class='pagination justify-content-center'>-->
                     <script>
-                        // <li class='icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='$tooltip'><a class='text-secondary text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>$i</a></li>
-
-                        for (var i = 0; i < map[window.localStorage.getItem("app_id")].images.length; i++) {
-                            // print the above code
-                            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-secondary text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='الصفحة الحالية'><a class='text-white text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>" + (i + 1) + "</a></li>");
-                        }
+                        setAppImages();
+                        setAppImagesPaginationIndicator();
                     </script>
-                </ul>
-            </div>
+<!--                </ul>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
