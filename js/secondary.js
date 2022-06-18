@@ -55,7 +55,7 @@ function setAppImagesPaginationIndicator() {
     document.write("<div class='my-4'><ul class='pagination justify-content-center'>");
     for (var i = 1; i <= page; i++) {
         if (i === current_page) {
-            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-secondary text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='Current page'><a class='text-white text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>" + i + "</a></li>");
+            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-secondary text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='Current page'><a onclick='setAppPage(" + i + ")' class='text-white text-xs font-weight-bold' href='javascript:;'>" + i + "</a></li>");
         }
         else {
             var tooltip = "";
@@ -68,7 +68,7 @@ function setAppImagesPaginationIndicator() {
             else {
                 tooltip = "Page " + i;
             }
-            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='" + tooltip + "'><a class='text-secondary text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>" + i + "</a></li>");
+            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='" + tooltip + "'><a onclick='setAppPage(" + i + ")' class='text-secondary text-xs font-weight-bold' href='javascript:;'>" + i + "</a></li>");
         }
     }
     document.write("</ul></div>");
@@ -80,13 +80,15 @@ function setAppImages() {
     var page = parseInt(localStorage.getItem("page"));
     var images_number = map[app_id].images.length;
     var current_page = page;
-    page = Math.ceil(images_number / limit);
-    var images = map[app_id].images;
     var start = (current_page - 1) * limit;
     var end = current_page * limit;
+    end = Math.abs(end);
+    if (end - images_number > limit || images_number <= 0) {
+        showNoAppImagesFoundedMessage();
+        return;
+    }
     if (end > images_number) {
         end = images_number;
-
     }
     for (var i = start; i < end; i++) {
         document.write("<div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'\n" +
@@ -106,7 +108,41 @@ function setAppImages() {
             "                </div>\n" +
             "            </div>");
     }
+    setAppImagesPaginationIndicator();
+}
 
+function showNoAppImagesFoundedMessage() {
+    var app_id = window.localStorage.getItem("app_id");
+    var images_number = map[app_id].images.length;
+    document.write("<div class='mb-5 mt-4'><div class='align-middle text-center'><span class='text-secondary text-xs font-weight-bold'>Sorry, there is no data to display</span></div></div>");
+    if (images_number > 0) {
+        document.write("<div class='centered-button justify-content-center py-0 px-4'>\n" +
+            "                <div class='text-center col-10 col-lg-4 col-md-8 col-sm-10'>\n" +
+            "                    <button onclick='onGoBackButtonClicked(1)' id='btn-edit-consultant-state' type='button'\n" +
+            "                            class='btn bg-gradient-info w-100 mt-0 mb-4'>Back to first page\n" +
+            "                    </button>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        ");
+    }
+}
+
+function setAppPage(page) {
+    var current_page = parseInt(localStorage.getItem("page"));
+    if (page === current_page) {
+        return;
+    }
+    localStorage.setItem("page", page);
+    window.location.reload();
+}
+
+function onGoBackButtonClicked(page) {
+    localStorage.setItem("page", page);
+    window.location.reload();
+}
+
+function goBackToPreviousPage() {
+    history.back();
 }
 
 

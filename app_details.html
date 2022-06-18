@@ -28,7 +28,7 @@ navbar-scroll="true">
 <div class="container-fluid py-1 px-3">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-    <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">App
+    <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" onclick="goBackToPreviousPage()" href="javascript:;">App
         Details</a></li>
     <li class="breadcrumb-item text-sm text-dark active app_title" aria-current="page"></li>
 </ol>
@@ -82,30 +82,9 @@ navbar-scroll="true">
             </div>
         </div>
         <div class="row px-0 pt-0 pb-2">
-<!--            <div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'-->
-<!--                 title='Click on the image to view in full screen mode with the ability to download'>-->
-<!--                <div class='card-body p-3'>-->
-<!--                    <div class='row'>-->
-<!--                        <div class='col-12'>-->
-<!--                            <div class='numbers'>-->
-<!--                                <h5 class='text-sm font-weight-bolder mb-0'>-->
-<!--                                    <a href='img/e_learning/1.png'>-->
-<!--                                        <img src='img/e_learning/1.png' alt='certificate image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>-->
-<!--                                    </a>-->
-<!--                                </h5>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class='my-4'>-->
-<!--                <ul class='pagination justify-content-center'>-->
-                    <script>
-                        setAppImages();
-                        setAppImagesPaginationIndicator();
-                    </script>
-<!--                </ul>-->
-<!--            </div>-->
+            <script>
+                setAppImages();
+            </script>
         </div>
     </div>
 </div>

@@ -723,6 +723,12 @@ progress {
   margin-left: calc(var(--bs-gutter-x) * -.5);
 }
 
+/* Custom */
+.centered-button {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .row>* {
   flex-shrink: 0;
   width: 100%;
