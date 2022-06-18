@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="76x76" href="css/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="css/assets/img/favicon.png">
+<script src="js/secondary.js" type="text/javascript"></script>
+<title class="app_title"></title>
+<!--     Fonts and icons     -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+<!-- Nucleo Icons -->
+<link href="css/assets/css/nucleo-icons.css" rel="stylesheet"/>
+<link href="css/assets/css/nucleo-svg.css" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<link href="css/assets/css/nucleo-svg.css" rel="stylesheet"/>
+<!-- CSS Files -->
+<link id="pagestyle" href="css/assets/css/admin-dashboard.css?v=1.0.3" rel="stylesheet"/>
+</head>
+
+<body class="g-sidenav-show rtl bg-gray-100">
+<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
+<!-- Navbar -->
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+navbar-scroll="true">
+<div class="container-fluid py-1 px-3">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
+    <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">App
+        Details</a></li>
+    <li class="breadcrumb-item text-sm text-dark active app_title" aria-current="page"></li>
+</ol>
+<h6 class="font-weight-bolder mb-0 ps-3 app_title"></h6>
+</nav>
+</div>
+</nav>
+<!-- End Navbar -->
+<div class="container-fluid py-4">
+<div class="row">
+<div id="alert" class="alert alert-danger" role="alert" dir="ltr" style="color: white; display: none"></div>
+<div class="col-lg-12 col-sm-12 mb-lg-0 mb-4 my-4">
+<div class="card">
+    <div class="card-body p-3">
+        <div class="row">
+            <div class="col-8">
+                <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">App name</p>
+                </div>
+            </div>
+            <div class="mb-0 my-2 col-lg-8 col-md-8 col-sm-0">
+                <div class="numbers">
+                    <p class="text-sm mb-0 ps-2 text-capitalize font-weight-lighter app_title"></p>
+                </div>
+            </div>
+    </div>
+        <div class="row">
+            <div class="col-8 my-12">
+                <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">App Details</p>
+                </div>
+            </div>
+            <div class="mb-0 my-2 col-lg-8 col-md-8 col-sm-0">
+                <div class="numbers">
+                    <p class="text-sm mb-0 ps-2 text-capitalize font-weight-lighter app_description"></p>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+<div class="container-fluid py-4">
+<div class="row">
+<div class="col-12">
+    <div class="card mb-4">
+        <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-lg-6 col-7">
+                    <h6>App Images</h6>
+                </div>
+            </div>
+        </div>
+        <div class="row px-0 pt-0 pb-2">
+            <div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'
+                 title='قم بالضغط على الصورة للعرض في وضع ملء الشاشة مع إمكانية التحميل'>
+                <div class='card-body p-3'>
+                    <div class='row'>
+                        <div class='col-12'>
+                            <div class='numbers'>
+                                <h5 class='text-sm font-weight-bolder mb-0'>
+                                    <a href='img/e_learning/1.png'>
+                                        <img src='img/e_learning/1.png' alt='certificate image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='my-4'>
+                <ul class='pagination justify-content-center'>
+                    <script>
+                        // <li class='icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='$tooltip'><a class='text-secondary text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>$i</a></li>
+
+                        for (var i = 0; i < map[window.localStorage.getItem("app_id")].images.length; i++) {
+                            // print the above code
+                            document.write("<li class='icon icon-shape icon-sm shadow border-radius-md bg-secondary text-center me-2 d-flex align-items-center justify-content-center' data-bs-toggle='tooltip' title='الصفحة الحالية'><a class='text-white text-xs font-weight-bold' href='?userId=$userId&type=show&page=$i'>" + (i + 1) + "</a></li>");
+                        }
+                    </script>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!--   Core JS Files   -->
+<script src="css/assets/js/core/popper.min.js"></script>
+<script src="css/assets/js/core/bootstrap.min.js"></script>
+<script src="css/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="css/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="css/assets/js/plugins/fullcalendar.min.js"></script>
+<script src="css/assets/js/plugins/choices.min.js"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="css/assets/js/admin-dashboard.min.js?v=1.0.3"></script>
+<script>
+    setAppTitle()
+    setAppDescription()
+</script>
+</body>
+
+</html>

@@ -859,6 +859,14 @@ a:focus {
     overflow: hidden;
 }
 
+.portfolio-radius {
+    border-radius: 14px;
+}
+
+.portfolio-title-radius {
+    border-radius: 10px;
+}
+
 .portfolio .portfolio-img img {
     position: relative;
     width: 100%; 
@@ -868,8 +876,13 @@ a:focus {
     transition: .5s;
 }
 
-.portfolio .portfolio-item:hover img {
+.portfolio {
     margin-left: 15px;
+}
+
+.portfolio-item:hover svg path {
+    /*margin-left: 15px;*/
+    fill: #EF233C;
 }
 
 .portfolio .portfolio-text {
