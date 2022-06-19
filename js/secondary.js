@@ -83,7 +83,7 @@ function setAppImages() {
     var start = (current_page - 1) * limit;
     var end = current_page * limit;
     end = Math.abs(end);
-    if (end - images_number > limit || images_number <= 0) {
+    if (end - images_number > limit || images_number <= 0 || current_page <= 0) {
         showNoAppImagesFoundedMessage();
         return;
     }
