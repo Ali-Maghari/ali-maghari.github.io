@@ -16,6 +16,7 @@ var apps_map = {
         ],
         "thumbnail_image": "img/to_do_list/to_do_list_not_filled.png",
         "thumbnail_slider_image": "img/to_do_list/to_do_list_filled.png",
+        "is_wide": false,
     },
     "my_messages": {
         "title": "My Messages",
@@ -31,6 +32,7 @@ var apps_map = {
         ],
         "thumbnail_image": "img/my_messages/my_messages_not_filled.png",
         "thumbnail_slider_image": "img/my_messages/my_messages_filled.png",
+        "is_wide": false,
     },
 };
 
@@ -114,8 +116,16 @@ function setAppImages() {
     if (end > images_number) {
         end = images_number;
     }
+    var is_wide = apps_map[app_id].is_wide;
+    var col_styles = "col-lg-3 col-sm-6";
+    if (is_wide) {
+        col_styles = "col-lg-12 col-sm-12";
+    }
+    else {
+        col_styles = "col-lg-3 col-sm-6";
+    }
     for (var i = start; i < end; i++) {
-        document.write("<div class='col-lg-3 col-sm-6 mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'\n" +
+        document.write("<div class='" + col_styles + " mb-lg-0 mb-4 my-4' data-bs-toggle='tooltip'\n" +
             "                 title='Click on the image to view in full screen mode with the ability to download'>\n" +
             "                <div class='card-body p-3'>\n" +
             "                    <div class='row'>\n" +
