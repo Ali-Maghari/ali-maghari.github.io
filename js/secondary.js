@@ -1,3 +1,9 @@
+const AppsType = Object.freeze({
+    Mobile: "Mobile",
+    Web: "Web",
+    Game: "Game",
+});
+
 var apps_map = {
     "to_do_list": {
         "title": "To Do List",
@@ -16,7 +22,7 @@ var apps_map = {
         ],
         "thumbnail_image": "img/to_do_list/to_do_list_not_filled.png",
         "thumbnail_slider_image": "img/to_do_list/to_do_list_filled.png",
-        "is_wide": false,
+        "app_type" : AppsType.Mobile,
     },
     "my_messages": {
         "title": "My Messages",
@@ -32,7 +38,7 @@ var apps_map = {
         ],
         "thumbnail_image": "img/my_messages/my_messages_not_filled.png",
         "thumbnail_slider_image": "img/my_messages/my_messages_filled.png",
-        "is_wide": false,
+        "app_type" : AppsType.Mobile,
     },
 };
 
@@ -49,7 +55,7 @@ var arr_working_experience = [
         "job_description": "Work as a developer of Android applications in Java and Kotlin languages . ",
         "start_to_end_date": "2022 - until now",
     }
-]
+];
 
 function setAppId(id) {
     window.localStorage.setItem("app_id", id);
@@ -116,9 +122,9 @@ function setAppImages() {
     if (end > images_number) {
         end = images_number;
     }
-    var is_wide = apps_map[app_id].is_wide;
+    var app_type = apps_map[app_id].app_type;
     var col_styles = "col-lg-3 col-sm-6";
-    if (is_wide) {
+    if (app_type === AppsType.Web || app_type === AppsType.Game) {
         col_styles = "col-lg-12 col-sm-12";
     }
     else {
@@ -205,7 +211,18 @@ function setWorkingExperience() {
 function setWorks() {
     var animation_delay = 0.0;
     for (var i = 0; i < Object.keys(apps_map).length; i++) {
-        document.write("<div class='col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp' data-wow-delay='" + animation_delay + "s'>\n" +
+        var filter_type = "filter-1"
+        var app_type = apps_map[Object.keys(apps_map)[i]].app_type;
+        if (app_type === AppsType.Web) {
+            filter_type = "filter-2";
+        }
+        else if (app_type === AppsType.Game) {
+            filter_type = "filter-3";
+        }
+        else {
+            filter_type = "filter-1";
+        }
+        document.write("<div class='col-lg-4 col-md-6 col-sm-12 portfolio-item " + filter_type + " wow fadeInUp' data-wow-delay='" + animation_delay + "s'>\n" +
             "                        <div class='portfolio-wrap'>\n" +
             "                            <div class='portfolio-img portfolio-radius'>\n" +
             "                                <a onclick=\"setAppId('" + Object.keys(apps_map)[i] + "')\"><img src='" + apps_map[Object.keys(apps_map)[i]].thumbnail_image + "' alt='Image'></a>\n" +
