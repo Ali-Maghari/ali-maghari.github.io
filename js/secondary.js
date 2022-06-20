@@ -211,7 +211,7 @@ function setWorkingExperience() {
 function setWorks() {
     var animation_delay = 0.0;
     for (var i = 0; i < Object.keys(apps_map).length; i++) {
-        var filter_type = "filter-1"
+        var filter_type = "filter-1";
         var app_type = apps_map[Object.keys(apps_map)[i]].app_type;
         if (app_type === AppsType.Web) {
             filter_type = "filter-2";
