@@ -1,6 +1,7 @@
-var appsMap = {
+var apps_map = {
     "to_do_list": {
         "title": "To Do List",
+        "thumbnail_title": "To Do List",
         "description": "It is an application that helps users to do their tasks, and also helps them to schedule it so that this application provides a notification when the task that the user entered is due, and the user can also use it as a notes application so that he only enters his task without specifying a time and date for it.",
         "images": [
             "img/to_do_list/images/1.png",
@@ -13,10 +14,27 @@ var appsMap = {
             "img/to_do_list/images/8.png",
             "img/to_do_list/images/9.png",
         ],
+        "thumbnail_image": "img/to_do_list/to_do_list_not_filled.png",
+        "thumbnail_slider_image": "img/to_do_list/to_do_list_filled.png",
+    },
+    "my_messages": {
+        "title": "My Messages",
+        "thumbnail_title": "My Messages",
+        "description": "It is an application that helps users to do their tasks, and also helps them to schedule it so that this application provides a notification when the task that the user entered is due, and the user can also use it as a notes application so that he only enters his task without specifying a time and date for it.",
+        "images": [
+            "img/my_messages/images/1.png",
+            "img/my_messages/images/2.png",
+            "img/my_messages/images/3.png",
+            "img/my_messages/images/4.png",
+            "img/my_messages/images/5.png",
+            "img/my_messages/images/6.png",
+        ],
+        "thumbnail_image": "img/my_messages/my_messages_not_filled.png",
+        "thumbnail_slider_image": "img/my_messages/my_messages_filled.png",
     },
 };
 
-var arrWorkingExperience = [
+var arr_working_experience = [
     {
         "job_title": "Freelance Work",
         "company_name": "Freelancer and Mostaql",
@@ -40,31 +58,22 @@ function setAppId(id) {
 function setAppTitle() {
     var app_id = window.localStorage.getItem("app_id");
     for (var i = 0; i < document.getElementsByClassName("app_title").length; i++) {
-        document.getElementsByClassName("app_title")[i].innerHTML = appsMap[app_id].title;
+        document.getElementsByClassName("app_title")[i].innerHTML = apps_map[app_id].title;
     }
 }
 
 function setAppDescription() {
     var app_id = window.localStorage.getItem("app_id");
     for (var i = 0; i < document.getElementsByClassName("app_description").length; i++) {
-        document.getElementsByClassName("app_description")[i].innerHTML = appsMap[app_id].description;
+        document.getElementsByClassName("app_description")[i].innerHTML = apps_map[app_id].description;
     }
-}
-
-function getAppImages() {
-    var app_id = window.localStorage.getItem("app_id");
-    var images = appsMap[app_id].images;
-    for (var i = 0; i < appsMap[app_id].images.length; i++) {
-        images[i] = appsMap[app_id][i];
-    }
-    return images;
 }
 
 function setAppImagesPaginationIndicator() {
     var limit = 6;
     var app_id = window.localStorage.getItem("app_id");
     var page = parseInt(localStorage.getItem("page"));
-    var images_number = appsMap[app_id].images.length;
+    var images_number = apps_map[app_id].images.length;
     var current_page = page;
     page = Math.ceil(images_number / limit);
     document.write("<div class='my-4'><ul class='pagination justify-content-center'>");
@@ -93,7 +102,7 @@ function setAppImages() {
     var limit = 6;
     var app_id = window.localStorage.getItem("app_id");
     var page = parseInt(localStorage.getItem("page"));
-    var images_number = appsMap[app_id].images.length;
+    var images_number = apps_map[app_id].images.length;
     var current_page = page;
     var start = (current_page - 1) * limit;
     var end = current_page * limit;
@@ -113,8 +122,8 @@ function setAppImages() {
             "                        <div class='col-12'>\n" +
             "                            <div class='numbers'>\n" +
             "                                <h5 class='text-sm font-weight-bolder mb-0'>\n" +
-            "                                    <a href='" + appsMap[app_id].images[i] + "'>\n" +
-            "                                        <img src='" + appsMap[app_id].images[i] + "' alt='app screen image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>\n" +
+            "                                    <a href='" + apps_map[app_id].images[i] + "'>\n" +
+            "                                        <img src='" + apps_map[app_id].images[i] + "' alt='app screen image' class='border-radius-lg bg-cover' style='height: 100%; width: 100%; object-fit: cover'>\n" +
             "                                    </a>\n" +
             "                                </h5>\n" +
             "                            </div>\n" +
@@ -128,7 +137,7 @@ function setAppImages() {
 
 function showNoAppImagesFoundedMessage() {
     var app_id = window.localStorage.getItem("app_id");
-    var images_number = appsMap[app_id].images.length;
+    var images_number = apps_map[app_id].images.length;
     document.write("<div class='mb-5 mt-4'><div class='align-middle text-center'><span class='text-secondary text-xs font-weight-bold'>Sorry, there is no data to display</span></div></div>");
     if (images_number > 0) {
         document.write("<div class='centered-button justify-content-center py-0 px-4'>\n" +
@@ -161,26 +170,45 @@ function goBackToPreviousPage() {
 }
 
 function setWorkingExperience() {
-    for (var i = 0; i < arrWorkingExperience.length; i++) {
-        var slideStyle = "slideInLeft";
+    for (var i = 0; i < arr_working_experience.length; i++) {
+        var slide_style = "slideInLeft";
         var direction = "left";
         if (i % 2 === 0) {
-            slideStyle = "slideInLeft";
+            slide_style = "slideInLeft";
             direction = "left";
         }
         else {
-            slideStyle = "slideInRight";
-            console.log("reached here");
+            slide_style = "slideInRight";
             direction = "right";
         }
-        document.write("<div class='timeline-item " + direction + " wow " + slideStyle + "' data-wow-delay='0.1s'>\n" +
+        document.write("<div class='timeline-item " + direction + " wow " + slide_style + "' data-wow-delay='0.1s'>\n" +
             "                        <div class='timeline-text'>\n" +
-            "                            <div class='timeline-date'>" + arrWorkingExperience[i].start_to_end_date + "</div>\n" +
-            "                            <h2>" + arrWorkingExperience[i].job_title + "</h2>\n" +
-            "                            <h4>" + arrWorkingExperience[i].company_name + "</h4>\n" +
-            "                            <p>" + arrWorkingExperience[i].job_description + "</p>\n" +
+            "                            <div class='timeline-date'>" + arr_working_experience[i].start_to_end_date + "</div>\n" +
+            "                            <h2>" + arr_working_experience[i].job_title + "</h2>\n" +
+            "                            <h4>" + arr_working_experience[i].company_name + "</h4>\n" +
+            "                            <p>" + arr_working_experience[i].job_description + "</p>\n" +
             "                        </div>\n" +
             "                    </div>");
+    }
+}
+
+function setWorks() {
+    var animation_delay = 0.0;
+    for (var i = 0; i < Object.keys(apps_map).length; i++) {
+        document.write("<div class='col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp' data-wow-delay='" + animation_delay + "s'>\n" +
+            "                        <div class='portfolio-wrap'>\n" +
+            "                            <div class='portfolio-img portfolio-radius'>\n" +
+            "                                <a onclick=\"setAppId('" + Object.keys(apps_map)[i] + "')\"><img src='" + apps_map[Object.keys(apps_map)[i]].thumbnail_image + "' alt='Image'></a>\n" +
+            "                            </div>\n" +
+            "                            <div class='portfolio-text portfolio-title-radius'>\n" +
+            "                                <h3>" + apps_map[Object.keys(apps_map)[i]].thumbnail_title + "</h3>\n" +
+            "                                <a class='btn portfolio-radius' href='" + apps_map[Object.keys(apps_map)[i]].thumbnail_slider_image + "' data-lightbox='portfolio'><svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink'\n" +
+            "                                 width='50%' height='50%' x='0' y='0' viewBox='0 0 512 512'\n" +
+            "                                 style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g><path xmlns='http://www.w3.org/2000/svg' d='m181.2 32a32 32 0 0 1 -32 32h-85.2v85.2a32 32 0 0 1 -64 0v-117.2a32 32 0 0 1 32-32h117.2a32 32 0 0 1 32 32zm-32 416h-85.2v-85.2a32 32 0 0 0 -64 0v117.2a32 32 0 0 0 32 32h117.2a32 32 0 1 0 0-64zm330.8-117.2a32 32 0 0 0 -32 32v85.2h-85.2a32 32 0 1 0 0 64h117.2a32 32 0 0 0 32-32v-117.2a32 32 0 0 0 -32-32zm0-330.8h-117.2a32 32 0 0 0 0 64h85.2v85.2a32 32 0 1 0 64 0v-117.2a32 32 0 0 0 -32-32z' fill='#ffffff' data-original='#000000' class=''></path></g></svg></a>\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>");
+        animation_delay += 0.2;
     }
 }
 

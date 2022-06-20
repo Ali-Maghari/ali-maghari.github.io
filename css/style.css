@@ -886,7 +886,7 @@ a:focus {
     transition: .5s;
 }
 
-.portfolio {
+.portfolio .portfolio-item:hover img {
     margin-left: 15px;
 }
 
